@@ -22,7 +22,14 @@ display_time_stats = True
 
 import robot_wanderer
 import robot_dumb
+import robot_braitenberg_loveWall
+import robot_braitenberg_hateWall
+import robot_braitenberg_loveBot
+import robot_braitenberg_hateBot
+import robot_braitenberg_avoider
 
+"""
+#decommenter pour revenir a la configuration de base
 def initialize_robots(arena_size=-1, particle_box=-1): # particle_box: size of the robot enclosed in a square
     x_center = arena_size // 2 - particle_box / 2
     y_center = arena_size // 2 - particle_box / 2
@@ -31,4 +38,16 @@ def initialize_robots(arena_size=-1, particle_box=-1): # particle_box: size of t
     robots.append(robot_wanderer.Robot_player(93, y_center, 180, name="Second robot", team="Team Wander"))
     robots.append(robot_dumb.Robot_player(x_center, y_center+20, 90, name="Third robot", team="Team Dumb"))
     robots.append(robot_dumb.Robot_player(x_center, y_center-40, 270, name="Fourth robot", team="Team Dumb"))
+    return robots
+"""
+
+def initialize_robots(arena_size=-1, particle_box=-1): # particle_box: size of the robot enclosed in a square
+    x_center = arena_size // 2 - particle_box / 2
+    y_center = arena_size // 2 - particle_box / 2
+    robots = []
+    robots.append(robot_wanderer.Robot_player(4, y_center, 0, name="First Robot", team="Team Wander"))
+    robots.append(robot_wanderer.Robot_player(93, y_center, 180, name="Second robot", team="Team Wander"))
+    robots.append(robot_wanderer.Robot_player(x_center - 4, y_center+20, 90, name="----", team="Team Wander"))
+    robots.append(robot_braitenberg_loveBot.Robot_player(x_center, y_center+20, 90, name="Third robot", team="Team Dumb"))
+    robots.append(robot_braitenberg_loveBot.Robot_player(x_center, y_center-40, 270, name="Fourth robot", team="Team Dumb"))
     return robots
