@@ -28,6 +28,7 @@ import robot_braitenberg_loveBot
 import robot_braitenberg_hateBot
 import robot_braitenberg_avoider
 
+
 """
 #decommenter pour revenir a la configuration de base
 def initialize_robots(arena_size=-1, particle_box=-1): # particle_box: size of the robot enclosed in a square
