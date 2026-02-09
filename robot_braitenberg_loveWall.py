@@ -41,8 +41,8 @@ class Robot_player(Robot):
                 print ("\trobot's name (if relevant)      =",sensor_robot)
                 print ("\trobot's team (if relevant)      =",sensor_team)
 
-        translation = sensors[sensor_front]*0.5 # A MODIFIER
-        rotation = 0.5 # A MODIFIER
+        translation = 0.6 * (sensor_to_wall[sensor_front] + sensor_to_wall[sensor_front_left] + sensor_to_wall[sensor_front_right]) / 3.0
+        rotation = 0.8 * (sensor_to_wall[sensor_front_left] - sensor_to_wall[sensor_front_right]) + 0.6 * (sensor_to_wall[sensor_left] - sensor_to_wall[sensor_right]) + 0.3 * (sensor_to_wall[sensor_rear_left] - sensor_to_wall[sensor_rear_right])
 
         self.iteration = self.iteration + 1        
         return translation, rotation, False
